@@ -7,15 +7,17 @@ import (
 var cfg *config
 
 type config struct {
-	APP           aPpConfig
-	DB            dBConfig
+	APP aPpConfig
+	DB  dBConfig
 }
 
 type aPpConfig struct {
-	Name string
-	GenerateDB bool
-	URL string
-	Cron string
+	Name               string
+	GenerateDB         bool
+	Cron               string
+	URL_WORDPRESS      string
+	WP_UPLOADS         string
+	URL_PUBLIC_UPLOADS string
 }
 
 type dBConfig struct {
@@ -29,6 +31,7 @@ type dBConfig struct {
 func init() {
 	viper.SetDefault("database.host", "locahost")
 	viper.SetDefault("database.port", "5432")
+	viper.SetDefault("app.wp_uploads", "/wp-content/uploads")
 }
 
 func Load() error {
@@ -46,10 +49,12 @@ func Load() error {
 
 	cfg = new(config)
 	cfg.APP = aPpConfig{
-		Name: viper.GetString("app.name"),
-		GenerateDB: viper.GetBool("app.generateDB"),
-		URL: viper.GetString("app.url"),
-		Cron: viper.GetString("app.cron"),
+		Name:               viper.GetString("app.name"),
+		GenerateDB:         viper.GetBool("app.generateDB"),
+		URL_WORDPRESS:      viper.GetString("app.url_wordpress"),
+		URL_PUBLIC_UPLOADS: viper.GetString("app.url_public_uploads"),
+		WP_UPLOADS:         viper.GetString("app.wp_uploads"),
+		Cron:               viper.GetString("app.cron"),
 	}
 
 	cfg.DB = dBConfig{
@@ -60,14 +65,12 @@ func Load() error {
 		Database: viper.GetString("database.name"),
 	}
 
-
 	return nil
 }
 
 func GetDB() dBConfig {
 	return cfg.DB
 }
-
 
 func GetApp() aPpConfig {
 	return cfg.APP

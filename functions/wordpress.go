@@ -13,6 +13,6 @@ var client *wordpress.Client
 
 func GetClient() {
 	client = wordpress.NewClient(&wordpress.Options{
-		BaseAPIURL: config.GetApp().URL + WPAPI + WPV2,
+		BaseAPIURL: config.GetApp().URL_WORDPRESS + WPAPI + WPV2,
 	})
 }

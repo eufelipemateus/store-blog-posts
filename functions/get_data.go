@@ -1,11 +1,15 @@
 package functions
 
 import (
+	"strings"
+
+	config "github.com/eufelipemateus/store-blog-posts/configs"
 	"github.com/eufelipemateus/store-blog-posts/interfaces"
 	"github.com/eufelipemateus/store-blog-posts/utils"
 )
 
 var Posts []*interfaces.Post
+
 
 func getAuthor(userId int) interfaces.User {
 	user, _, _, err := client.Users().Get(userId, nil)
@@ -16,7 +20,7 @@ func getAuthor(userId int) interfaces.User {
 		Description: user.Description,
 		Link:        user.Link,
 		Slug:        user.Slug,
-		AvatarUrl:   user.AvatarURL,
+		AvatarUrl:   user.AvatarURLs.Size96,
 		Nickname:    user.Username,
 	}
 }
@@ -30,7 +34,12 @@ func getMedia(idMedia int) interfaces.Media {
 	utils.Check(err)
 	return interfaces.Media{
 		Title:     media.Title.Rendered,
-		SourceUrl: media.SourceURL,
+		SourceUrl: strings.Replace(
+			media.SourceURL,
+			config.GetApp().URL_WORDPRESS + config.GetApp().WP_UPLOADS, 
+			config.GetApp().URL_PUBLIC_UPLOADS, 
+			1,
+		),
 	}
 }
 
