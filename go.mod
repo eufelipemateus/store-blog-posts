@@ -1,5 +1,4 @@
-module github.com/eufelipemateus/go-get-blog-posts
-
+module github.com/eufelipemateus/store-blog-posts
 go 1.20
 
 require (

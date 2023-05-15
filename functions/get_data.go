@@ -1,8 +1,8 @@
 package functions
 
 import (
-	"github.com/eufelipemateus/go-get-blog-posts/interfaces"
-	"github.com/eufelipemateus/go-get-blog-posts/utils"
+	"github.com/eufelipemateus/store-blog-posts/interfaces"
+	"github.com/eufelipemateus/store-blog-posts/utils"
 )
 
 var Posts []*interfaces.Post
@@ -23,9 +23,9 @@ func getAuthor(userId int) interfaces.User {
 func getMedia(idMedia int) interfaces.Media {
 
 	if idMedia == 0 {
-		return  interfaces.Media{}
+		return interfaces.Media{}
 	}
-	
+
 	media, _, _, err := client.Media().Get(idMedia, nil)
 	utils.Check(err)
 	return interfaces.Media{

@@ -3,8 +3,8 @@ package functions
 import (
 	"context"
 
-	"github.com/eufelipemateus/go-get-blog-posts/database"
-	"github.com/eufelipemateus/go-get-blog-posts/database/query"
+	"github.com/eufelipemateus/store-blog-posts/database"
+	"github.com/eufelipemateus/store-blog-posts/database/query"
 	"gorm.io/gorm/clause"
 )
 

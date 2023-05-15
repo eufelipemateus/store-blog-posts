@@ -1,8 +1,8 @@
 package functions
 
 import (
-	config "github.com/eufelipemateus/go-get-blog-posts/configs"
 	"github.com/eufelipemateus/go-wordpress"
+	config "github.com/eufelipemateus/store-blog-posts/configs"
 )
 
 const WPAPI = "/wp-json"

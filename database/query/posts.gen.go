@@ -16,7 +16,7 @@ import (
 
 	"gorm.io/plugin/dbresolver"
 
-	"github.com/eufelipemateus/go-get-blog-posts/interfaces"
+	"github.com/eufelipemateus/store-blog-posts/interfaces"
 )
 
 func newPost(db *gorm.DB, opts ...gen.DOOption) post {

@@ -1,9 +1,9 @@
 package main
 
 import (
-	config "github.com/eufelipemateus/go-get-blog-posts/configs"
-	"github.com/eufelipemateus/go-get-blog-posts/database"
-	"github.com/eufelipemateus/go-get-blog-posts/functions"
+	config "github.com/eufelipemateus/store-blog-posts/configs"
+	"github.com/eufelipemateus/store-blog-posts/database"
+	"github.com/eufelipemateus/store-blog-posts/functions"
 	"github.com/robfig/cron"
 )
 
@@ -20,7 +20,7 @@ func main() {
 	}
 
 	println("Startando wordpress cron...")
-	println("Exec.: "+config.GetApp().Cron)
+	println("Exec.: " + config.GetApp().Cron)
 
 	functions.GetClient()
 	functions.GetPosts()

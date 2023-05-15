@@ -3,7 +3,7 @@ package database
 import (
 	"fmt"
 
-	config "github.com/eufelipemateus/go-get-blog-posts/configs"
+	config "github.com/eufelipemateus/store-blog-posts/configs"
 	"gorm.io/driver/postgres"
 	"gorm.io/gen/examples/dal/query"
 	"gorm.io/gorm"
