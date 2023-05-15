@@ -1,0 +1,12 @@
+[app]
+name = "Micro Servico  - BLog Wordpress"
+generateDB = true
+url = "http://localhost"
+cron = "@every 1m"
+
+[database]
+host = "localhost"
+port = "5432"
+user = "postgres"
+pass = "Postgress2022!"
+name = "postgres"
