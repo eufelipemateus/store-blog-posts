@@ -26,7 +26,7 @@ type Post struct {
 	Content       string `json:"content"`
 	Excerpt       string `json:"excerpt"`
 	Author        User   `gorm:"serializer:json"  json:"author"`
-	FeaturedMedia Media  `gorm:"serializer:json" json:"featured_media"`
+	FeaturedMedia Media  `gorm:"serializer:json" json:"faturedMedia"`
 	//	CommentStatus string  `json:"comment_status"`
 	//	PingStatus    string  `json:"ping_status"`
 	//Sticky     bool   `json:"sticky"`
